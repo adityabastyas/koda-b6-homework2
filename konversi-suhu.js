@@ -9,7 +9,7 @@ process.stdin.on("data", function (data) {
 
   if (langkah === 1) {
     temp = Number(input);
-    if (typeof temp !== "number") {
+    if (!Number(temp)) {
       console.log("Suhu harus angka");
       process.exit();
     }
