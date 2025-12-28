@@ -20,7 +20,7 @@ flowchart TD
   WaitInput3@{shape: lean-r, label: "inputUser : data"}
   LetInput3@{shape: rect, label: "input = data"}
   CekLangkah3@{shape: diamond, label: "langkah === 3"}
-  Proses3@{shape: rect, label: "convertTo = input"}
+  Proses3@{shape: rect, label: "convertTo = input , hasil = 0 , satuan = ''"}
 
   IsCelcius@{shape: diamond, label: "tempSource === 'celcius'"}
   CtoF@{shape: diamond, label: "convertTo === 'fahrenheit'"}
@@ -53,7 +53,7 @@ flowchart TD
   OutputKtoF@{shape: lean-r, label: "Output: 'Hasil:', F, '°F'"}
   KtoR@{shape: diamond, label: "convertTo === 'reamur'"}
   ProcessKtoR@{shape: rect, label: "R = 4/5 * (temp - 273.15)"}
-  OutputKtoR@{shape: lean-r, label: "Output: 'Hasil:', R, '°R'"}
+  OutputKtoR@{shape: lean-r, label: "Output: Hasil R, '°R'"}
 
   IsReamur@{shape: diamond, label: "tempSource === 'reamur'"}
   RtoC@{shape: diamond, label: "convertTo === 'celcius'?"}
@@ -69,6 +69,8 @@ flowchart TD
   OutputError2@{shape: lean-r, label: "Output: 'Konversi tidak ada'"}
   Exit@{shape: rect, label: "process.exit()"}
   End@{shape: dbl-circ, label: "Selesai"}
+
+  outputHasil@{shape: lean-r, label: 'Output : "hasil : hasil , satuan"'}
 
   Start --> Init
   Init --> Output1
@@ -97,38 +99,38 @@ flowchart TD
   Proses3 --> IsCelcius
 
   IsCelcius --True--> CtoF
-  CtoF --True--> ProcessCtoF --> OutputCtoF --> Exit
+  CtoF --True--> ProcessCtoF --> outputHasil --> Exit
   CtoF --False--> CtoK
-  CtoK --True--> ProcessCtoK --> OutputCtoK --> Exit
+  CtoK --True--> ProcessCtoK --> outputHasil --> Exit
   CtoK --False--> CtoR
-  CtoR --True--> ProcessCtoR --> OutputCtoR --> Exit
+  CtoR --True--> ProcessCtoR --> outputHasil --> Exit
   CtoR --False--> OutputError2 --> Exit
 
   IsCelcius --False--> IsFahrenheit
   IsFahrenheit --True--> FtoC
-  FtoC --True--> ProcessFtoC --> OutputFtoC --> Exit
+  FtoC --True--> ProcessFtoC --> outputHasil --> Exit
   FtoC --False--> FtoK
-  FtoK --True--> ProcessFtoK --> OutputFtoK --> Exit
+  FtoK --True--> ProcessFtoK --> outputHasil --> Exit
   FtoK --False--> FtoR
-  FtoR --True--> ProcessFtoR --> OutputFtoR --> Exit
+  FtoR --True--> ProcessFtoR --> outputHasil --> Exit
   FtoR --False--> OutputError2 --> Exit
 
   IsFahrenheit --False--> IsKelvin
   IsKelvin --True--> KtoC
-  KtoC --True--> ProcessKtoC --> OutputKtoC --> Exit
+  KtoC --True--> ProcessKtoC --> outputHasil --> Exit
   KtoC --False--> KtoF
-  KtoF --True--> ProcessKtoF --> OutputKtoF --> Exit
+  KtoF --True--> ProcessKtoF --> outputHasil --> Exit
   KtoF --False--> KtoR
-  KtoR --True--> ProcessKtoR --> OutputKtoR --> Exit
+  KtoR --True--> ProcessKtoR --> outputHasil --> Exit
   KtoR --False--> OutputError2 --> Exit
 
   IsKelvin --False--> IsReamur
   IsReamur --True--> RtoC
-  RtoC --True--> ProcessRtoC --> OutputRtoC --> Exit
+  RtoC --True--> ProcessRtoC --> outputHasil --> Exit
   RtoC --False--> RtoF
-  RtoF --True--> ProcessRtoF --> OutputRtoF --> Exit
+  RtoF --True--> ProcessRtoF --> outputHasil --> Exit
   RtoF --False--> RtoK
-  RtoK --True--> ProcessRtoK --> OutputRtoK --> Exit
+  RtoK --True--> ProcessRtoK --> outputHasil --> Exit
   RtoK --False--> OutputError2 --> Exit
 
   IsReamur --False--> OutputError2
