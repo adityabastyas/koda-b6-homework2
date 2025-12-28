@@ -24,47 +24,47 @@ flowchart TD
 
   IsCelcius@{shape: diamond, label: "tempSource === 'celcius'"}
   CtoF@{shape: diamond, label: "convertTo === 'fahrenheit'"}
-  ProcessCtoF@{shape: rect, label: "F = temp * (9/5) + 32"}
-  OutputCtoF@{shape: lean-r, label: "Output: 'Hasil:', F, '°F'"}
-  CtoK@{shape: diamond, label: "convertTo === 'kelvin'?"}
-  ProcessCtoK@{shape: rect, label: "K = temp + 273.15"}
-  OutputCtoK@{shape: lean-r, label: "Output: 'Hasil:', K, 'K'"}
+  ProcessCtoF@{shape: rect, label: "hasil = temp * (9/5) + 32 , satuan = '°F'"}
+
+  CtoK@{shape: diamond, label: "convertTo === 'kelvin'"}
+  ProcessCtoK@{shape: rect, label: "hasil = temp + 273.15 , satuan = 'K'"}
+
   CtoR@{shape: diamond, label: "convertTo === 'reamur'?"}
-  ProcessCtoR@{shape: rect, label: "R = (4/5) * temp"}
-  OutputCtoR@{shape: lean-r, label: "Output: 'Hasil:', R, '°R'"}
+  ProcessCtoR@{shape: rect, label: "hasil = (4/5) * temp , satuan = '°R'"}
+
 
   IsFahrenheit@{shape: diamond, label: "tempSource === 'fahrenheit'"}
   FtoC@{shape: diamond, label: "convertTo === 'celcius'"}
-  ProcessFtoC@{shape: rect, label: "C = (temp - 32) * 5/9"}
-  OutputFtoC@{shape: lean-r, label: "Output: 'Hasil:', C, '°C'"}
-  FtoK@{shape: diamond, label: "convertTo === 'kelvin'?"}
-  ProcessFtoK@{shape: rect, label: "K = 5/9 * (temp - 32) + 273"}
-  OutputFtoK@{shape: lean-r, label: "Output: 'Hasil:', K, 'K'"}
+  ProcessFtoC@{shape: rect, label: "hasil = (temp - 32) * 5/9 , satuan = '°C'"}
+
+  FtoK@{shape: diamond, label: "convertTo === 'kelvin'"}
+  ProcessFtoK@{shape: rect, label: "hasil = 5/9 * (temp - 32) + 273 , satuan = 'K'"}
+
   FtoR@{shape: diamond, label: "convertTo === 'reamur'"}
-  ProcessFtoR@{shape: rect, label: "R = (temp - 32) * 4/9"}
-  OutputFtoR@{shape: lean-r, label: "Output: 'Hasil:', R, '°R'"}
+  ProcessFtoR@{shape: rect, label: "hasil = (temp - 32) * 4/9, satuan = '°R'"}
+
 
   IsKelvin@{shape: diamond, label: "tempSource === 'kelvin'"}
   KtoC@{shape: diamond, label: "convertTo === 'celcius'"}
-  ProcessKtoC@{shape: rect, label: "C = temp - 273.15"}
-  OutputKtoC@{shape: lean-r, label: "Output: 'Hasil:', C, '°C'"}
+  ProcessKtoC@{shape: rect, label: "hasil = temp - 273.15 , satuan = '°C'"}
+
   KtoF@{shape: diamond, label: "convertTo === 'fahrenheit'"}
-  ProcessKtoF@{shape: rect, label: "F = (temp - 273.15) * 9/5 + 32"}
-  OutputKtoF@{shape: lean-r, label: "Output: 'Hasil:', F, '°F'"}
+  ProcessKtoF@{shape: rect, label: "hasil = (temp - 273.15) * 9/5 + 32 , satuan = '°F'"}
+
   KtoR@{shape: diamond, label: "convertTo === 'reamur'"}
-  ProcessKtoR@{shape: rect, label: "R = 4/5 * (temp - 273.15)"}
-  OutputKtoR@{shape: lean-r, label: "Output: Hasil R, '°R'"}
+  ProcessKtoR@{shape: rect, label: "hasil = 4/5 * (temp - 273.15) , satuan = '°R'"}
+
 
   IsReamur@{shape: diamond, label: "tempSource === 'reamur'"}
-  RtoC@{shape: diamond, label: "convertTo === 'celcius'?"}
-  ProcessRtoC@{shape: rect, label: "C = (5/4) * temp"}
-  OutputRtoC@{shape: lean-r, label: "Output: 'Hasil:', C, '°C'"}
+  RtoC@{shape: diamond, label: "convertTo === 'celcius'"}
+  ProcessRtoC@{shape: rect, label: "hasil = (5/4) * temp , satuan = '°C'"}
+
   RtoF@{shape: diamond, label: "convertTo === 'fahrenheit'"}
-  ProcessRtoF@{shape: rect, label: "F = (temp * 9/4) + 32"}
-  OutputRtoF@{shape: lean-r, label: "Output: 'Hasil:', F, '°F'"}
+  ProcessRtoF@{shape: rect, label: "hasil = (temp * 9/4) + 32 , satuan = '°F'"}
+
   RtoK@{shape: diamond, label: "convertTo === 'kelvin'"}
-  ProcessRtoK@{shape: rect, label: "K = (temp * 5/4) + 273.15"}
-  OutputRtoK@{shape: lean-r, label: "Output: 'Hasil:', K, 'K'"}
+  ProcessRtoK@{shape: rect, label: "hasil = (temp * 5/4) + 273.15 , satuan = 'K'"}
+
 
   OutputError2@{shape: lean-r, label: "Output: 'Konversi tidak ada'"}
   Exit@{shape: rect, label: "process.exit()"}
